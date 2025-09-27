@@ -1,5 +1,6 @@
-# analizador_texto.py
 
+
+#analizadordetexto.py - Clase para analizar texto
 class AnalizadorTexto:
     def __init__(self, nombre_archivo):
         """Constructor: Inicializa las estructuras de datos"""
@@ -58,4 +59,10 @@ class AnalizadorTexto:
     def obtener_top_palabras(self, n=5):
         """Devuelve las n palabras más frecuentes"""
         return sorted(self.frecuencias.items(), key=lambda item: item[1], reverse=True)[:n] 
-    
+    def calcular_estadisticas(self):
+        palabras = self.texto.split()
+        return {
+            "total_palabras": len(palabras),
+            "total_caracteres": len(self.texto),
+            "palabra_mas_larga": max(palabras, key=len) if palabras else ""
+        }
